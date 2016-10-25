@@ -6,20 +6,20 @@ var nano = require('nano')({
 });
 
 //usa la base de datos taller_nosql
-var db = nano.db.use('taller_nosql');
+var tallerNosql = nano.db.use('taller_nosql');
 
 var listDatabases = function (callback) {
     return nano.db.list(callback);
 };
 
 var listDocuments = function (callback) {
-    return db.list(callback);
+    return tallerNosql.list(callback);
 };
 
 var addUsers = function (users) {
     if(users && users.length > 0) {
         users.forEach(function (user) {
-            db.insert(user, function (error, body, header) {
+            tallerNosql.insert(user, function (error, body, header) {
                 if(error)
                     console.log(error);
             });
@@ -28,7 +28,7 @@ var addUsers = function (users) {
 };
 
 var listUsers = function (callback) {
-    db.get('users', callback);
+    tallerNosql.get('users', callback);
 };
 
 module.exports = {
