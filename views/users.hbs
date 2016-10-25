@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1>Lista de usuarios</h1>
+<ul>
+    {{#each users}}
+        <li>Nombre: {{this.name}}</li>
+        <li>Apellido:{{this.surname}}</li>
+    {{/each}}
+</ul>
+</body>
+</html>
