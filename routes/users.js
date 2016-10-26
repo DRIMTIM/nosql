@@ -4,7 +4,7 @@ var couchdb = require('../persistence/couchPersistence');
 
 router.get('/', function (req, res, next) {
     couchdb.listUsers(function (error, body, header) {
-        res.render('users', {users: body});
+        res.render('users', {users: body.rows});
     });
 });
 
@@ -13,15 +13,18 @@ router.get('/add', function (req, res, next) {
         "docs": [
             {
                 name: "Roberto",
-                surname: "Robertson"
+                surname: "Robertson",
+                type: "user"
             },
             {
                 name: "David",
-                surname: "Davidson"
+                surname: "Davidson",
+                type: "user"
             },
             {
                 name: "Dilma",
-                surname: "Rouseff"
+                surname: "Rouseff",
+                type: "user"
             }
         ]
     };

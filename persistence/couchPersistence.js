@@ -18,12 +18,12 @@ var listDocuments = function (callback) {
 
 var addUsers = function (users, callback) {
     if(users) {
-        tallerNosql.bulk(users, {} ,callback);
+        tallerNosql.bulk(users, "users" ,callback);
     }
 };
 
 var listUsers = function (callback) {
-    tallerNosql.get('users', callback);
+    tallerNosql.list({type: "user", include_docs : true}, callback);
 };
 
 module.exports = {
