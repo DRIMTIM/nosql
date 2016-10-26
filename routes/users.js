@@ -9,22 +9,25 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/add', function (req, res, next) {
-    var users = [
-        {
-            name: "Roberto",
-            surname: "Robertson"
-        },
-        {
-            name: "David",
-            surname: "Davidson"
-        },
-        {
-            name: "Dilma",
-            surname: "Rouseff"
-        }
-    ];
+    var users = {
+        "docs": [
+            {
+                name: "Roberto",
+                surname: "Robertson"
+            },
+            {
+                name: "David",
+                surname: "Davidson"
+            },
+            {
+                name: "Dilma",
+                surname: "Rouseff"
+            }
+        ]
+    };
     couchdb.addUsers(users, function (error, body, header) {
-        res.send('Usuarios agregados!');
+        console.log(error);
+        res.redirect('/users');
     });
 });
 

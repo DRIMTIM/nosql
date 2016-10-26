@@ -16,14 +16,9 @@ var listDocuments = function (callback) {
     return tallerNosql.list(callback);
 };
 
-var addUsers = function (users) {
-    if(users && users.length > 0) {
-        users.forEach(function (user) {
-            tallerNosql.insert(user, function (error, body, header) {
-                if(error)
-                    console.log(error);
-            });
-        });
+var addUsers = function (users, callback) {
+    if(users) {
+        tallerNosql.bulk(users, {} ,callback);
     }
 };
 
